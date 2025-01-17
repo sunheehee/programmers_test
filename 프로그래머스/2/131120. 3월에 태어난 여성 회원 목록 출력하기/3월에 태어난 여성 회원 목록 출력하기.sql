@@ -1,4 +1,4 @@
--- 코드를 입력하세요
+``` 코드를 입력하세요
 SELECT
     MEMBER_ID,
     MEMBER_NAME,
@@ -10,6 +10,6 @@ WHERE
     TLNO IS NOT NULL AND
     GENDER = 'W'
 ORDER BY MEMBER_ID
---
+```
 
 ❗WHERE은 조건을 주는 것이기 때문에 쉼표(,)가 아닌 AND 혹은 OR로 연결해주어야한다.
