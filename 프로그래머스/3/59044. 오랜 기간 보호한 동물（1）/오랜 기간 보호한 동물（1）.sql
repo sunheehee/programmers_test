@@ -1,5 +1,4 @@
 -- 코드를 입력하세요 --- subquery사용
-
 SELECT 
     NAME, 
     DATETIME
