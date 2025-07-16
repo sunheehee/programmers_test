@@ -1,5 +1,5 @@
 def solution(n):
-    numbers = range(1,n+1)
+    numbers = range(n+1)
     array = []
     for number in numbers:
         if number % 2 ==1:
