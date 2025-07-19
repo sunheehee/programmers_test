@@ -1,6 +1,5 @@
+import math
 def solution(n):
-    i = 1
-    while True:
-        if (6*i) % n == 0:
-            return i  
-        i += 1
+    gcd = math.gcd(6,n)
+    lcm = (6 * n) / gcd
+    return lcm / 6
