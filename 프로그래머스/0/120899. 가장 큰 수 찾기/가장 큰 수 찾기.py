@@ -1,8 +1,6 @@
 def solution(array):
-    a = max(sorted(array))
-    b = 0
-    for i in range(len(array)):
-        if array[i] == a:
-            b = i
-    answer = [a,b]
-    return answer
+    max_val = max(array)
+    for idx, val in enumerate(array):
+        if val == max_val:
+            return [max_val,idx]
+        
