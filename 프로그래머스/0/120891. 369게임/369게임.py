@@ -1,6 +1,6 @@
 def solution(order):
     answer = 0
     for x in str(order):
-        if int(x) != 0 and int(x)% 3 == 0:
+        if x in ['3','6','9']:
             answer += 1
     return answer
