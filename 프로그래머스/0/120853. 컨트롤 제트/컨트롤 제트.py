@@ -1,9 +1,11 @@
-def solution(s):
-    list = []
+def solution (s):
+    answer = 0
+    prev = 0
     s = s.split()
     for ch in s:
-        if ch == 'Z':
-            list.pop()
+        if ch == "Z":
+            answer -= prev
         else:
-            list.append(int(ch))
-    return sum(list)
+            answer += int(ch)
+            prev = int(ch)
+    return answer
