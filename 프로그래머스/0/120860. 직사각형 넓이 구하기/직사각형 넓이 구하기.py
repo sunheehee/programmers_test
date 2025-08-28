@@ -1,6 +1,6 @@
 def solution(dots):
-    x_list = [dot[0] for dot in dots]
-    y_list = [dot[1] for dot in dots]
-    width = max(x_list) - min(x_list)
-    length = max(y_list) - min(y_list)
-    return width * length
+    x,y = [],[]
+    for dot in dots:
+        x.append(dot[0])
+        y.append(dot[1])
+    return (max(x)-min(x)) * (max(y)-min(y))
