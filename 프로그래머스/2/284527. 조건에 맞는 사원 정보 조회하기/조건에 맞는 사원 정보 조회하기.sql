@@ -1,0 +1,14 @@
+-- 코드를 작성해주세요
+-- 
+#1.2022년도 데이터만 필터링 `WHERE YEAR = 2022`
+#2.평가점수 상,하반기의 점수 합 => score
+#3.가장 높은 점수
+#4. 그 점수를 가진 사원의 정보 출력
+
+SELECT SUM(SCORE) AS SCORE, E.EMP_NO, EMP_NAME, POSITION, EMAIL
+FROM HR_EMPLOYEES E
+JOIN HR_GRADE G ON E.EMP_NO = G.EMP_NO
+WHERE YEAR = 2022
+GROUP BY EMP_NO, EMP_NAME, POSITION, EMAIL
+ORDER BY 1 DESC
+LIMIT 1
