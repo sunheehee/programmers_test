@@ -1,29 +1,25 @@
 -- 코드를 작성해주세요
+# # EMP_NO별로 SCORE평균 구하기
+
+WITH AVG_SCORE AS( 
+    SELECT EMP_NO, AVG(SCORE) AS SCORE
+    FROM HR_GRADE
+    GROUP BY EMP_NO
+    )
+
 SELECT
     E.EMP_NO,
     E.EMP_NAME,
-    (CASE 
-        WHEN AVG(G.SCORE) >= 96 THEN 'S'
-        WHEN AVG(G.SCORE) >= 90 THEN 'A'
-        WHEN AVG(G.SCORE) >= 80 THEN 'B'
-        ELSE 'C'
-     END) AS GRADE,
-    (CASE 
-        WHEN AVG(G.SCORE) >= 96 THEN E.SAL * 0.2
-        WHEN AVG(G.SCORE) >= 90 THEN E.SAL * 0.15
-        WHEN AVG(G.SCORE) >= 80 THEN E.SAL * 0.1
-        ELSE 0
-     END ) AS BONUS
-    
-FROM HR_EMPLOYEES AS E
-JOIN HR_GRADE AS G 
-ON E.EMP_NO = G.EMP_NO
-GROUP BY E.EMP_NO
+    CASE 
+        WHEN SCORE >= 96 THEN 'S'
+        WHEN SCORE >= 90 THEN 'A'
+        WHEN SCORE >= 80 THEN 'B'
+        ELSE "C" END AS GRADE,
+    CASE 
+        WHEN SCORE >= 96 THEN SAL * 0.2
+        WHEN SCORE >= 90 THEN SAL * 0.15
+        WHEN SCORE >= 80 THEN SAL * 0.1
+        ELSE 0 END AS BONUS
+FROM HR_EMPLOYEES E
+JOIN AVG_SCORE S ON S.EMP_NO = E.EMP_NO
 ORDER BY E.EMP_NO;
-
-# GROUP BY E.EMP_NO --- AVG를 사용했으니까 GROUPING해줘야함
-# CASE WHEN 사용법 숙지하기
-
-    
-
-    
